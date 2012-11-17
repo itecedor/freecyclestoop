@@ -1,5 +1,21 @@
 <?php
 
+/* 	when you want to talk to the DB:
+ *
+ * 	require_once('db.php');
+ * 	$link = mysql_connect('localhost', 'freecyclestoop', 'OH@I!PickUpFreeShitHere!');
+   	if (!$link) {
+   		die('Could not connect: ' . mysql_error());
+	}
+	echo 'Connected successfully';
+ *
+ *  $result = mysql_query('SELECT * WHERE 1=1');
+ *	if (!$result) {
+ *  	die('Invalid query: ' . mysql_error());
+ *	}
+ *	mysql_close($link);
+ */
+
 ?>
 
 <html>

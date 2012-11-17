@@ -16,11 +16,8 @@ mysql_close($link);
 if( isset($_POST['claim']) ) {
 	$item_id = $_POST['item'];
 
-  $link = mysql_connect('localhost', 'freecyclestoop', 'OH@I!PickUpFreeShitHere!');
-  if (!$link) {
-    die('Could not connect: ' . mysql_error());
-  }
-  mysql_select_db('freecyclestoop');
+  require("dbconfig.php");
+
   $query = "UPDATE items SET available = 0 WHERE id = $item_id;";
 
   $result = mysql_query($query) ;

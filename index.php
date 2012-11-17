@@ -24,7 +24,7 @@
         <div id="message">Location unknown</div>
 
         Add an item:
-        <form enctype="multipart/form-data" action="index.php" method="POST">
+        <form enctype="multipart/form-data" action="submit_new_item.php" method="POST">
           <input type="hidden" name="MAX_FILE_SIZE" value="3000000000" />
           <input type="hidden" name="lat" value="$lat">
           <input type="hidden" name="long" value="$long">

@@ -1,11 +1,7 @@
 <?php
+header('Access-Control-Allow-Origin: *');
 
-// query the DB to find available items
-$link = mysql_connect('localhost', 'freecyclestoop', 'OH@I!PickUpFreeShitHere!');
-if (!$link) {
-	die('Could not connect: ' . mysql_error());
-}
-mysql_select_db('freecyclestoop');
+require("dbconfig.php");
 $query = "SELECT * FROM items where available = 1;";
 
 $result = mysql_query($query) ;

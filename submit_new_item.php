@@ -1,7 +1,8 @@
 <?php
+	header('Access-Control-Allow-Origin: *');
 
-  $lat = 40.753227700000004;
-  $long = -73.98980209999999;
+  $lat = $_POST['latitude'];
+  $long = $_POST['longitude'];
   $image = $_POST['photo'];
   $imagename = $_FILES['photo']['name'];
   $imagetype = $_FILES['photo']['type'];
@@ -11,7 +12,7 @@
 
       if(is_uploaded_file($imagetemp)) {
           if(move_uploaded_file($imagetemp, $imagePath . $imagename)) {
-              echo "Sussecfully uploaded your image.";
+              echo "Successfully uploaded your image.";
           }
           else {
               echo "Failed to move your image.";
@@ -21,11 +22,11 @@
           echo "Failed to upload your image.";
       }
 
-  $link = mysql_connect('localhost', 'freecyclestoop', 'OH@I!PickUpFreeShitHere!');
+  $link = mysql_connect('angelhack.keimdesign.com', 'freecyclestoop', 'OH@I!PickUpFreeShitHere!');
   if (!$link) {
     die('Could not connect: ' . mysql_error());
   }
-  mysql_select_db('freecyclestoop');
+  mysql_select_db('stoopme');
   $query = "INSERT INTO items (`photo_name`, `lat`, `long`, `available`) VALUES ('$imagename', '$lat', '$long', 1);";
 
   $result = mysql_query($query) ;

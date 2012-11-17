@@ -17,13 +17,20 @@
     </head>
     <body>
 			<div class="content">
-			<h1>Freecycle Stoop</h1>
+			 <h1>Freecycle Stoop</h1>
 			
-			<div id="message">Location unknown</div>
-			<form>
-				<input type="file" accept="image/*" capture="camera">
-				<input type="submit">
-			</form>
+			
+        You are here:
+        <div id="message">Location unknown</div>
+
+        Add an item:
+        <form enctype="multipart/form-data" action="index.php" method="POST">
+          <input type="hidden" name="MAX_FILE_SIZE" value="3000000000" />
+          <input type="hidden" name="lat" value="$lat">
+          <input type="hidden" name="long" value="$long">
+          <input type="file" accept="image/*" capture="camera" name="photo">
+          <input type="submit" name="submit">
+        </form>
 			</div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
         <script src="js/main.js"></script>

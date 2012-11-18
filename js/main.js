@@ -10,15 +10,19 @@
 				url:'submit_new_item.php', // this used to have the full URL, http://www.keimdesign.com/stoop/submit_new_item.php
 				dataType: "html",
 				success:function(response){
-				 	$('.db-response').html(response);
+				 	$('.db-response').html("Anyone ever tell you, you're beautiful?<br />Thanks for contributing.");
+				 	$('.loading-icon').hide();
 				},
 				error:function(){
 					$('.db-response').html('Something happened, please try again.');
+				 	$('.loading-icon').hide();
 				}
 	    }; 
 	 
 	    // bind form using 'ajaxForm' 
-	    $('#item-entry').ajaxSubmit(options)
+	    $('#item-entry').ajaxSubmit(options);
+	    $('#item-entry').hide();
+	    $('.loading').show();
     },
     
     _grab_item: function(item_id){

@@ -91,6 +91,11 @@
 function successHandler(location) {
 		$('#latitude-value').val(location.coords.latitude);
 		$('#longitude-value').val(location.coords.longitude);
+
+	$("a").click(function (event) {
+	    event.preventDefault();
+	    window.location = $(this).attr("href");
+	});
 }
 function errorHandler(error) {
     alert('Attempt to get location failed: ' + error.message);

@@ -23,7 +23,7 @@ const TOKEN_ENDPOINT = 'https://api.singly.com/oauth/access_token';
 $client = new OAuth2\Client(CLIENT_ID, CLIENT_SECRET);
 
 if (!isset($_GET['code'])) {
-   $auth_url = $client->getAuthenticationUrl(AUTHORIZATION_ENDPOINT, REDIRECT_URI) ."&service=". SERVICE;
+   $auth_url = $client->getAuthenticationUrl(AUTHORIZATION_ENDPOINT, REDIRECT_URI) ."&service=". SERVICE . "&scope=basic_info";
 
    header('Location: '. $auth_url);
 
@@ -60,8 +60,6 @@ if (!isset($_GET['code'])) {
    }
    // if so, add to sessions
    else {
-   		echo "user exists";
-   		echo "<p>";
    		while($row = mysql_fetch_row($result)) {
 			$user_id = $row[0];
 		}
@@ -69,7 +67,6 @@ if (!isset($_GET['code'])) {
 		$new_session_result = mysql_query($new_session_query);
    }
  
-   print_r($response);
    // You should also store this in the user's session
    $client->setAccessToken($response['result']['access_token']);
 

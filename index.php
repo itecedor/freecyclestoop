@@ -16,6 +16,12 @@
     $category[$row[0]] = $row[1];
   }
 
+// pull up logged in user data
+
+//$profile = $client->fetch('https://api.singly.com/profiles');
+
+//print_r($profile);
+
 ?>
 
 <!DOCTYPE html>

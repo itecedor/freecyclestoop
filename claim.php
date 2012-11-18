@@ -43,7 +43,7 @@ Available items:
 <?php while($row = mysql_fetch_row($result)): ?> 
 	<form method="POST">
 		<input type="hidden" name="item" value="<?php echo $row[0]; ?>">
-		<p>Number: <?php echo $row[0]; ?> <img src="http://www.mtv.com/shared/droplets/media/normalize_jpeg.jhtml?width=250&height=250&matte=true&matteColor=0xcccccc&image=<?= urlencode('http://knitspiring.com/freecyclestoop/images/' . $row[4]); ?>" width="250px"> <input type="submit" name="claim" value="claim">
+		<p>Number: <?php echo $row[0]; ?> <img src="http://www.mtv.com/shared/droplets/media/normalize_jpeg.jhtml?width=250&height=250&matte=true&matteColor=000000&image=<?= urlencode('http://knitspiring.com/freecyclestoop/images/' . $row[4]); ?>" width="250px"> <input type="submit" name="claim" value="claim">
 	</form>
 <?php endwhile; ?>
 

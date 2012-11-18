@@ -32,7 +32,7 @@ if( isset($_POST['claim']) ) {
 <?php while($row = mysql_fetch_row($result)): ?> 
 	<form method="POST">
 		<input type="hidden" name="item" value="<?php echo $row[0]; ?>">
-		<img src="http://www.mtv.com/shared/droplets/media/normalize_jpeg.jhtml?width=175&height=175&matte=true&matteColor=0xcccccc&image=<?= urlencode('http://www.keimdesign.com/stoop/images/' . $row[4]); ?>" width="175" height="175"><br /><a class="back-to-map" href="#">&#11013;</a><input type="image" name="claim" src="files/btn-claim.png">
+		<img src="http://www.mtv.com/shared/droplets/media/normalize_jpeg.jhtml?width=175&height=175&matte=true&matteColor=000000&image=<?= urlencode('http://knitspiring.com/freecyclestoop/images/' . $row[4]); ?>" width="175" height="175"><br /><a class="back-to-map" href="#">&#11013;</a><input type="image" name="claim" src="files/btn-claim.png">
 	</form>
 	<img class="mini-map" width='320' height='105' src='http://maps.google.com/maps/api/staticmap?center=<?php echo $row[2]; ?>,<?php echo $row[3]; ?>&markers=<?php echo $row[2]; ?>,<?php echo $row[3]; ?>&zoom=14&size=320x105&sensor=false' />
 <?php endwhile; ?>

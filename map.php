@@ -37,7 +37,7 @@ while ($row = mysql_fetch_row($result)) {
 		</div>
 	<div id="grid">
 	<?php foreach ($items as $item): ?>
-	<img data-item-id="<?= $item['id'] ?>" src="http://www.mtv.com/shared/droplets/media/normalize_jpeg.jhtml?width=95&height=95&matte=true&matteColor=000000&image=<?= urlencode('http://www.keimdesign.com/stoop/images/' . $item['photo_name']); ?>" width="95px">
+	<img data-item-id="<?= $item['id'] ?>" src="http://www.mtv.com/shared/droplets/media/normalize_jpeg.jhtml?width=95&height=95&matte=true&matteColor=000000&image=<?= urlencode('http://knitspiring.com/freecyclestoop/images/' . $item['photo_name']); ?>" width="95px">
 	<?php endforeach ?>	
 	</div>
 	<div id="map"></div>

@@ -142,6 +142,7 @@ h1 {
 	background-color: #000;
 	height: 260px;
 	text-align: center;
+	display: none;
 }
 
 #item-details img {

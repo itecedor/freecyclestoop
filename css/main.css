@@ -106,7 +106,7 @@ a {
 
 body {
 	background-color: #fff;
-	font: 12px 'Times', serif;
+	font: 12px 'Helvetica Neue', 'Helvetica', Arial, serif;
 	background: url(../files/bg.jpg) no-repeat;
 	height: 460px;
 }
@@ -124,6 +124,38 @@ h1 {
 	width: 320px;
 	height: 460px;
 	position: relative;
+}
+
+#map {
+	width: 320px;
+	height: 350px;
+}
+
+.mini-map {
+	position: absolute;
+	bottom: 45px;
+	left: 0;
+}
+
+#item-details {
+	padding-top: 15px;
+	background-color: #000;
+	height: 260px;
+	text-align: center;
+	display: none;
+}
+
+#item-details img {
+	margin-bottom: 10px;
+}
+
+.back-to-map {
+	display: block;
+	position: absolute;
+	top: 135px;
+	left: 20px;
+	font-size: 30px;
+	color: #2ab37e;
 }
 
 .content .footer {

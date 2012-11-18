@@ -8,8 +8,8 @@ require('lib/PHP-OAuth2/GrantType/AuthorizationCode.php');
 
 // These are your Singly client ID and secret from here:
 // https://singly.com/apps
-const CLIENT_ID = '2b855368d6d1f322736dae243e1fb1bb';
-const CLIENT_SECRET = 'cc4fc623fd4b8eda478e6a9c276b42a6';
+const CLIENT_ID = 'b63f9e7ba0c64a76c89336605f25f4e4';
+const CLIENT_SECRET = '8c2177ab3988a1b45a42342bb76ff79d';
 
 // Set his is the URL of this file (http://yourdomain.com/index.php, for example)
 const REDIRECT_URI = 'http://localhost:8888/auth.php';

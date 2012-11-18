@@ -1,6 +1,6 @@
 (function() {
 		
-	var events = {
+	events = {
 
 		_add_item: function() {
 
@@ -19,12 +19,32 @@
 	 
 	    // bind form using 'ajaxForm' 
 	    $('#item-entry').ajaxSubmit(options)
+    },
+    
+    _grab_item: function(item_id){
+			$.ajax({
+				type: 'POST',
+				url:'grab_item.php',
+        data: ({id: item_id}),
+				success:function(response){
+					$('#map').hide();
+					$('#item-details').html(response);
+					$('#item-details').show();  
+				}
+			});	    
+    },
+    
+    show_map: function(e){
+    	e.preventDefault();
+			$('#item-details').hide();  
+			$('#map').show();
     }
 		
 	}	
 	$(function() {
 	
 		$('.submit-item').bind('click', events._add_item);
+		$('.back-to-map').live('click', events.show_map);
   
   });
   
@@ -33,10 +53,6 @@
 function successHandler(location) {
 		$('#latitude-value').val(location.coords.latitude);
 		$('#longitude-value').val(location.coords.longitude);
-
-    var message = document.getElementById("message"), html = [];
-    html.push("<img width='256' height='256' src='http://maps.google.com/maps/api/staticmap?center=", location.coords.latitude, ",", location.coords.longitude, "&markers=size:small|color:blue|", location.coords.latitude, ",", location.coords.longitude, "&zoom=14&size=256x256&sensor=false' />");
-    message.innerHTML = html.join("");
 }
 function errorHandler(error) {
     alert('Attempt to get location failed: ' + error.message);

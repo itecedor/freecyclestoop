@@ -12,7 +12,7 @@ const CLIENT_ID = 'b63f9e7ba0c64a76c89336605f25f4e4';
 const CLIENT_SECRET = '8c2177ab3988a1b45a42342bb76ff79d';
 
 // Set his is the URL of this file (http://yourdomain.com/index.php, for example)
-const REDIRECT_URI = 'http://localhost:8888/auth.php';
+const REDIRECT_URI = 'http://knitspiring.com/freecyclestoop/';
 
 // The service you want the user to authenticate with
 const SERVICE = 'facebook';

@@ -46,6 +46,7 @@ while ($row = mysql_fetch_row($result)) {
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDodcEzMmV3xGrDcbtiZUI3tZnvupyHSyI&sensor=true"></script>
 	<script type="text/javascript">
 	var map;
+	var markers = {};
 	function init() {
 	  navigator.geolocation.getCurrentPosition(function(location) {
 	    var opts = {
@@ -73,7 +74,13 @@ while ($row = mysql_fetch_row($result)) {
 	        map.panTo(marker.getPosition());
 	        events._grab_item(id);
 	    });
+	    markers[id] = marker; 
 	    marker.setMap(map);
+	  }
+	  
+	  function delMarker(id) {
+	  	marker = markers[id]; 
+    	marker.setMap(null);
 	  }
 	</script>
 </body>

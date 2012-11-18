@@ -3,7 +3,7 @@
 
   $lat = $_POST['latitude'];
   $long = $_POST['longitude'];
-  $category = 1; //$_POST['category'];
+  $catetgory = $_POST['category'];
 
   print_r($_FILES);
   echo "<p>";

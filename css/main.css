@@ -124,6 +124,7 @@ h1 {
 	width: 320px;
 	height: 460px;
 	position: relative;
+	text-align: center;
 }
 
 #map {
@@ -174,6 +175,20 @@ h1 {
 	margin-bottom: 10px;
 }
 
+.home-screen {
+	margin-top: 20px;
+}
+
+.btn-facebook {
+	background: url(../files/btn-connect_facebook.png) no-repeat;
+	width: 280px;
+	height: 47px;
+	text-indent: -9999px;
+	margin-top: 20px;
+	padding: 0;
+	display: inline-block;
+}
+
 .claim-item {
 	background: url(../files/btn-claim.png) no-repeat;
 	width: 100px;
@@ -181,6 +196,35 @@ h1 {
 	text-indent: -9999px;
 	margin: 0;
 	padding: 0;
+	display: inline-block;
+}
+
+#item-entry {
+	margin: 20px 20px;
+	background-color: #000;
+	color: #fff;
+	padding: 5px 10px 20px;
+	font-size: 14px;
+	line-height: 40px;
+}
+
+.loading {
+	margin: 20px 20px;
+	background-color: #000;
+	color: #fff;
+	padding: 5px 10px 20px;
+	font-size: 14px;
+	line-height: 40px;
+	display: none;
+}
+
+.submit-item {
+	background: url(../files/btn-found.png) no-repeat;
+	width: 170px;
+	height: 25px;
+	text-indent: -9999px;
+	padding: 0;
+	margin-top: 10px;
 	display: inline-block;
 }
 

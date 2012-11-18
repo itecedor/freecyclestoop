@@ -28,7 +28,7 @@ session_start();
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>CurbCyle</title>
+        <title>CurbCycle</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -37,27 +37,34 @@ session_start();
     <body>
 			<div class="content">
 			<h1>CurbCycle</h1>
-<?php if (!isset($_SESSION['user_id'])): ?>
-    <a href="auth.php">Login or Sign Up</a>
-<?php endif; ?>
-			<div id="message"></div>
+		<div class="home-screen">
+<?php if (!isset($_SESSION['user_id'])) { ?>
+		<img src="files/bg-home.png" width="250" height="235" />
+    <a href="auth.php" class="btn-facebook">Login or Sign Up</a>
+<?php } else { ?>
+			<img src="files/bg-add.png" width="262" height="41" />
 			<form id="item-entry">
 			  <input type="hidden" name="MAX_FILE_SIZE" value="3000000000" />
 				<input type="hidden" name="latitude" value="" id="latitude-value" /> 
 				<input type="hidden" name="longitude" value="" id="longitude-value" />
 
-        <p>Choose image:
+        Choose image:
         <input type="file" accept="image/*" capture="camera" name="photo">
 
-        <p>Choose category:
-        <select name="category" id="category">
+        Choose category:
+        <select id="category">
           <?php foreach($category as $k => $v): ?>
             <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
           <?php endforeach; ?>
         </select>
-				<p><a href="#" class="submit-item">Submit Item</a>
-				<span class="db-response"></span>
+				<a href="#" class="submit-item">Submit Item</a>
 			</form>
+			<div class="loading">
+				<img src="files/ajax-loader.gif" width="32" height="32" class="loading-icon" />
+				<span class="db-response"></span>
+			</div>
+<?php } ?>
+			</div>
 				<div class="footer">
 					<a href="index.php"><img src="files/icon_01.png" alt="Add an Item" /></a>
 					<a href="map.php"><img src="files/icon_02.png" alt="Look Around" /></a>

@@ -35,7 +35,7 @@ while ($row = mysql_fetch_row($result)) {
 	<div id="item-details"></div>
 			<div class="footer">
 				<a href="index.php"><img src="files/icon_01.png" alt="Add an Item" /></a>
-				<a href="claim.php"><img src="files/icon_02.png" alt="Look Around" /></a>
+				<a href="map.php"><img src="files/icon_02.png" alt="Look Around" /></a>
 				<a href=""><img src="files/icon_03.png" alt="Settings" /></a>
 			</div>
 
@@ -46,6 +46,7 @@ while ($row = mysql_fetch_row($result)) {
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDodcEzMmV3xGrDcbtiZUI3tZnvupyHSyI&sensor=true"></script>
 	<script type="text/javascript">
 	var map;
+	var markers = {};
 	function init() {
 	  navigator.geolocation.getCurrentPosition(function(location) {
 	    var opts = {
@@ -73,7 +74,13 @@ while ($row = mysql_fetch_row($result)) {
 	        map.panTo(marker.getPosition());
 	        events._grab_item(id);
 	    });
+	    markers[id] = marker; 
 	    marker.setMap(map);
+	  }
+	  
+	  function delMarker(id) {
+	  	marker = markers[id]; 
+    	marker.setMap(null);
 	  }
 	</script>
 </body>

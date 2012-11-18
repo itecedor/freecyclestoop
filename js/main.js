@@ -34,6 +34,22 @@
 			});	    
     },
     
+    _claim_item: function(e){
+    	e.preventDefault();
+    	var item_id = $(this).attr('data-item-id');
+    	console.log(item_id);
+			$.ajax({
+				type: 'POST',
+				url:'claim_item.php',
+        data: ({id: item_id}),
+				success:function(response){
+					delMarker(item_id);
+					$('#map').show();
+					$('#item-details').hide();
+				}
+			});	    
+    },
+    
     show_map: function(e){
     	e.preventDefault();
 			$('#item-details').hide();  
@@ -45,6 +61,7 @@
 	
 		$('.submit-item').bind('click', events._add_item);
 		$('.back-to-map').live('click', events.show_map);
+		$('.claim-item').live('click', events._claim_item);
   
   });
   

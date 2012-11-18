@@ -149,6 +149,16 @@ h1 {
 	margin-bottom: 10px;
 }
 
+.claim-item {
+	background: url(../files/btn-claim.png) no-repeat;
+	width: 100px;
+	height: 25px;
+	text-indent: -9999px;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+}
+
 .back-to-map {
 	display: block;
 	position: absolute;

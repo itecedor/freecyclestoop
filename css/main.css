@@ -131,6 +131,20 @@ h1 {
 	height: 350px;
 }
 
+#grid {
+	width: 315px;
+	height: 350px;
+	padding: 5px 0 5px 5px;
+	overflow: hidden;
+	display: none;
+}
+
+#grid img {
+	margin: 0 8px 15px 0;
+	float: left;
+	border: 1px solid #000;
+}
+
 .mini-map {
 	position: absolute;
 	bottom: 45px;
@@ -143,6 +157,17 @@ h1 {
 	height: 260px;
 	text-align: center;
 	display: none;
+}
+
+.toggle-view {
+	background-color: #000;
+	text-align: center;
+	padding: 3px; 
+	color: #fff;
+}
+
+.toggle-view a {
+	color: #fff;
 }
 
 #item-details img {

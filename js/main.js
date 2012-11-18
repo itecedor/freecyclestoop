@@ -27,7 +27,9 @@
 				url:'grab_item.php',
         data: ({id: item_id}),
 				success:function(response){
+					$('.toggle-view').hide();
 					$('#map').hide();
+					$('#grid').hide();
 					$('#item-details').html(response);
 					$('#item-details').show();  
 				}
@@ -37,7 +39,6 @@
     _claim_item: function(e){
     	e.preventDefault();
     	var item_id = $(this).attr('data-item-id');
-    	console.log(item_id);
 			$.ajax({
 				type: 'POST',
 				url:'claim_item.php',
@@ -53,7 +54,17 @@
     show_map: function(e){
     	e.preventDefault();
 			$('#item-details').hide();  
+			$('#grid').hide();
+			$('.toggle-view').show();
 			$('#map').show();
+    },
+
+    show_grid: function(e){
+    	e.preventDefault();
+			$('#item-details').hide();  
+			$('#map').hide();
+			$('.toggle-view').show();
+			$('#grid').show();
     }
 		
 	}	
@@ -62,7 +73,13 @@
 		$('.submit-item').bind('click', events._add_item);
 		$('.back-to-map').live('click', events.show_map);
 		$('.claim-item').live('click', events._claim_item);
-  
+		$('.show-map').live('click', events.show_map);
+		$('.show-grid').live('click', events.show_grid);
+		$('#grid img').click(function() {
+			var item_id = $(this).attr('data-item-id');
+			events._grab_item(item_id);
+		});
+ 
   });
   
 })();

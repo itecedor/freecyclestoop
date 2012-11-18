@@ -2,7 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 
 require('dbconfig.php');
-$query = 'SELECT `id`, `lat`, `long` FROM items WHERE available = 1;';
+$query = 'SELECT `id`, `lat`, `long`, `photo_name` FROM items WHERE available = 1;';
 $result = mysql_query($query) ;
 
 if (!$result) {
@@ -11,7 +11,7 @@ if (!$result) {
 mysql_close($link);
 $items = array();
 while ($row = mysql_fetch_row($result)) {
-  $items[] = array('lng' => $row[2], 'lat' => $row[1], 'id' => $row[0]);
+  $items[] = array('lng' => $row[2], 'lat' => $row[1], 'id' => $row[0], 'photo_name' => $row[3]);
 }
 ?>
 <!DOCTYPE html>
@@ -31,6 +31,15 @@ while ($row = mysql_fetch_row($result)) {
 	<body onload="init()">
 	<div class="content">
 	<h1>CurbCycle</h1>
+		<div class="toggle-view">
+			<a href="#" class="show-map">Map</a> |
+			<a href="#" class="show-grid">Grid</a>
+		</div>
+	<div id="grid">
+	<?php foreach ($items as $item): ?>
+	<img data-item-id="<?= $item['id'] ?>" src="http://www.mtv.com/shared/droplets/media/normalize_jpeg.jhtml?width=95&height=95&matte=true&matteColor=000000&image=<?= urlencode('http://www.keimdesign.com/stoop/images/' . $item['photo_name']); ?>" width="95px">
+	<?php endforeach ?>	
+	</div>
 	<div id="map"></div>
 	<div id="item-details"></div>
 			<div class="footer">

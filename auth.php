@@ -12,7 +12,7 @@ const CLIENT_ID = 'b63f9e7ba0c64a76c89336605f25f4e4';
 const CLIENT_SECRET = '8c2177ab3988a1b45a42342bb76ff79d';
 
 // Set his is the URL of this file (http://yourdomain.com/index.php, for example)
-const REDIRECT_URI = 'http://knitspiring.com/freecyclestoop/';
+const REDIRECT_URI = 'http://knitspiring.com/freecyclestoop/auth.php';
 
 // The service you want the user to authenticate with
 const SERVICE = 'facebook';
@@ -29,6 +29,8 @@ if (!isset($_GET['code'])) {
 
    die('Redirect');
 } else {
+
+   session_start();
    $params = array('code' => $_GET['code'], 'redirect_uri' => REDIRECT_URI);
 
    $response = $client->getAccessToken(TOKEN_ENDPOINT, 'authorization_code', $params);
@@ -39,41 +41,31 @@ if (!isset($_GET['code'])) {
    // check if user is in the db
    require("dbconfig.php");
 
-   $query = "SELECT * FROM users WHERE singly_account = '$singly_account';";
+   $get_user_id_query = "SELECT * FROM users WHERE singly_account = '$singly_account';";
 
-   $result = mysql_query($query);
+   $user_id_result = mysql_query($get_user_id_query);
 
-   // if not, add them to users and to sessions
+   // if not, add them to users
    if( mysql_num_rows($result) == 0) {
    		$new_user_query = "INSERT INTO users (`singly_account`) VALUES ('$singly_account');";
    		$new_user_result = mysql_query($new_user_query);
 
 		$get_user_id_query = "SELECT id FROM users WHERE singly_account = '$singly_account';";
 		$user_id_result = mysql_query($get_user_id_query);
-
-		while($row = mysql_fetch_row($user_id_result)) {
-			$user_id = $row[0];
-		}
-
-		$new_session_query = "INSERT INTO sessions (`user_id`, `access_token`) VALUES ($user_id, '$access_token');";
-		$new_session_result = mysql_query($new_session_query);
    }
-   // if so, add to sessions
+   // add session to db, setup browser session
    else {
    		while($row = mysql_fetch_row($result)) {
 			$user_id = $row[0];
 		}
 		$new_session_query = "INSERT INTO sessions (`user_id`, `access_token`) VALUES ($user_id, '$access_token');";
 		$new_session_result = mysql_query($new_session_query);
+
+		$_SESSION['user_id'] = $user_id;
+		$_SESSION['access_token'] = $client->setAccessToken($response['result']['access_token']);
    }
- 
-   // You should also store this in the user's session
-   $client->setAccessToken($response['result']['access_token']);
-
-   //print_r($client);
-
    // From here on you can access Singly API URLs using $client->fetch
-   $response = $client->fetch('https://api.singly.com/profiles');
+   // $response = $client->fetch('https://api.singly.com/profiles');
 
-
+  header('Location: http://knitspiring.com/freecyclestoop/');
 }

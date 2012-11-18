@@ -33,6 +33,7 @@ session_start();
         <meta name="viewport" content="width=device-width">
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <link rel="stylesheet" href="css/main.css">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     </head>
     <body>
 			<div class="content">

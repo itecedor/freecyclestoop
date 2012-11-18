@@ -1,12 +1,9 @@
 <?php
 	header('Access-Control-Allow-Origin: *');
 
-  print_r($_POST);
-  die();
   $lat = $_POST['latitude'];
   $long = $_POST['longitude'];
-  $image = $_POST['photo'];
-  $category = $_POST['category'];
+  $category = 1; //$_POST['category'];
   $imagename = $_FILES['photo']['name'];
   $imagetype = $_FILES['photo']['type'];
   $imageerror = $_FILES['photo']['error'];

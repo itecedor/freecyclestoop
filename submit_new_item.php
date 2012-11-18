@@ -3,7 +3,7 @@
 
   $lat = $_POST['latitude'];
   $long = $_POST['longitude'];
-  $catetgory = $_POST['category'];
+  $category = $_POST['category'];
 
   $imagename = time() . $_FILES['photo']['name'];
   $imagetype = $_FILES['photo']['type'];

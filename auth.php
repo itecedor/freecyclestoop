@@ -52,18 +52,15 @@ if (!isset($_GET['code'])) {
 		$get_user_id_query = "SELECT id FROM users WHERE singly_account = '$singly_account';";
 		$user_id_result = mysql_query($get_user_id_query);
    }
-   // add session to db, setup browser session
-   else {
-     $row = mysql_fetch_row($user_id_result);
-     $user_id = $row[0];
+   $row = mysql_fetch_row($user_id_result);
+   $user_id = $row[0];
 
-		$new_session_query = "INSERT INTO sessions (`user_id`, `access_token`) VALUES ($user_id, '$access_token');";
-		$new_session_result = mysql_query($new_session_query);
+   $new_session_query = "INSERT INTO sessions (`user_id`, `access_token`) VALUES ($user_id, '$access_token');";
+   $new_session_result = mysql_query($new_session_query);
 
-		$_SESSION['user_id'] = $user_id;
-		$_SESSION['access_token'] = $client->setAccessToken($response['result']['access_token']);
-                session_write_close();
-   }
+   $_SESSION['user_id'] = $user_id;
+   $_SESSION['access_token'] = $client->setAccessToken($response['result']['access_token']);
+   session_write_close();
    // From here on you can access Singly API URLs using $client->fetch
    // $response = $client->fetch('https://api.singly.com/profiles');
 

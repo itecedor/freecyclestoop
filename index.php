@@ -50,7 +50,7 @@ session_start();
         <input type="file" accept="image/*" capture="camera" name="photo">
 
         <p>Choose category:
-        <select id="category">
+        <select name="category" id="category">
           <?php foreach($category as $k => $v): ?>
             <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
           <?php endforeach; ?>

@@ -22,6 +22,7 @@ body {
     font-size: 1em;
     line-height: 1.4;
     overflow: hidden;
+    margin: 0;
 }
 
 /*
@@ -106,8 +107,37 @@ a {
 body {
 	background-color: #fff;
 	font: 12px 'Times', serif;
+	background: url(../files/bg.jpg) no-repeat;
+	height: 460px;
 }
 
+h1 {
+	background: url(../files/logo.jpg) no-repeat;
+	width: 320px;
+	height: 54px;
+	text-indent: -9999px;
+	margin: 0;
+	padding: 0;
+}
+
+.content {
+	width: 320px;
+	height: 460px;
+	position: relative;
+}
+
+.content .footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 55px;
+	background-color: #000;
+	overflow: hidden;
+}
+
+.content .footer img {
+	float: left;
+}
 
 /* ==========================================================================
    Helper classes
@@ -220,18 +250,13 @@ body {
 
 /* iPad */
 @media only screen and (min-width: 568px) and (max-width: 1024px) {	
-	.content {
-		width: 500px;
-		margin: 0 auto;
-		overflow: hidden;
-	}
 	
 }
 
 /* iPhone */
 @media only screen and (max-width: 567px) and (min-width: 0) {
 	.content {
-		width: 300px;
+		width: 320px;
 		margin: 0 auto;
 		overflow: hidden;
 	}

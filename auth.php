@@ -1,6 +1,5 @@
 <?
 
-echo phpinfo();
 
 require('lib/PHP-OAuth2/Client.php');
 

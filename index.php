@@ -18,7 +18,9 @@
     <body>
 			<div class="content">
 			<h1>Freecycle Stoop</h1>
-			
+
+    <a href="auth.php">Login or Sign Up</a>
+
 			<div id="message"></div>
 			<form id="item-entry">
 			  <input type="hidden" name="MAX_FILE_SIZE" value="3000000000" />
@@ -28,6 +30,7 @@
 				<a href="#" class="submit-item">Submit Item</a>
 				<span class="db-response"></span>
 			</form>
+
 			</div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
         <script src="js/plugins.js"></script>

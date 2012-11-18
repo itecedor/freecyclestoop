@@ -35,7 +35,7 @@ while ($row = mysql_fetch_row($result)) {
 	<div id="item-details"></div>
 			<div class="footer">
 				<a href="index.php"><img src="files/icon_01.png" alt="Add an Item" /></a>
-				<a href="claim.php"><img src="files/icon_02.png" alt="Look Around" /></a>
+				<a href="map.php"><img src="files/icon_02.png" alt="Look Around" /></a>
 				<a href=""><img src="files/icon_03.png" alt="Settings" /></a>
 			</div>
 

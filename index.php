@@ -18,12 +18,6 @@ session_start();
     $category[$row[0]] = $row[1];
   }
 
-// pull up logged in user data
-
-//$profile = $client->fetch('https://api.singly.com/profiles');
-
-//print_r($profile);
-
 ?>
 
 <!DOCTYPE html>
@@ -34,14 +28,15 @@ session_start();
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Freecycle Stoop</title>
+        <title>CurbCyle</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
 			<div class="content">
-			<h1>Freecycle Stoop</h1>
+			<h1>CurbCycle</h1>
 <?php if (!isset($_SESSION['user_id'])): ?>
     <a href="auth.php">Login or Sign Up</a>
 <?php endif; ?>
@@ -63,6 +58,11 @@ session_start();
 				<p><a href="#" class="submit-item">Submit Item</a>
 				<span class="db-response"></span>
 			</form>
+				<div class="footer">
+					<a href="index.php"><img src="files/icon_01.png" alt="Add an Item" /></a>
+					<a href="map.php"><img src="files/icon_02.png" alt="Look Around" /></a>
+					<a href=""><img src="files/icon_03.png" alt="Settings" /></a>
+				</div>
 
 			</div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>

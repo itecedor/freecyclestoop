@@ -1,12 +1,12 @@
 <?php
 	header('Access-Control-Allow-Origin: *');
 
-  print_r($_POST);
-  die();
   $lat = $_POST['latitude'];
   $long = $_POST['longitude'];
-  $image = $_POST['photo'];
-  $category = $_POST['category'];
+  $category = 1; //$_POST['category'];
+
+  print_r($_FILES);
+  echo "<p>";
   $imagename = $_FILES['photo']['name'];
   $imagetype = $_FILES['photo']['type'];
   $imageerror = $_FILES['photo']['error'];
@@ -27,7 +27,9 @@
 
 	require("dbconfig.php");
 
-  $query = "INSERT INTO items (`category_id`, `photo_name`, `lat`, `long`, `available`) VALUES ('$category', $imagename', '$lat', '$long', 1);";
+  $query = "INSERT INTO items 
+              (`category_id`, `photo_name`, `lat`, `long`, `available`) VALUES 
+              ('$category', '$imagename', '$lat', '$long', 1);";
 
   $result = mysql_query($query) ;
 

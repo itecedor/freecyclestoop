@@ -5,9 +5,7 @@
   $long = $_POST['longitude'];
   $catetgory = $_POST['category'];
 
-  print_r($_FILES);
-  echo "<p>";
-  $imagename = $_FILES['photo']['name'];
+  $imagename = $_FILES['photo']['name'] . time();
   $imagetype = $_FILES['photo']['type'];
   $imageerror = $_FILES['photo']['error'];
   $imagetemp = $_FILES['photo']['tmp_name'];

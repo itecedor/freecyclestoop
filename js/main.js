@@ -7,7 +7,7 @@
 
 	    var options = { 
 				type: 'POST',
-				url:'http://www.keimdesign.com/stoop/submit_new_item.php',
+				url:'submit_new_item.php', // this used to have the full URL, http://www.keimdesign.com/stoop/submit_new_item.php
 				dataType: "html",
 				success:function(response){
 				 	$('.db-response').html(response);

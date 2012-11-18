@@ -1,5 +1,21 @@
 <?php
 
+// grab all categories from the DB
+  require("dbconfig.php");
+
+  $categories_query = "SELECT * FROM categories;";
+
+  $categories_result = mysql_query($categories_query) ;
+
+  if (!$categories_result) {
+    die('Invalid query: ' . mysql_error());
+  }
+  mysql_close($link);
+
+  while($row = mysql_fetch_row($categories_result)) {
+    $category[$row[0]] = $row[1];
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -25,9 +41,18 @@
 			<form id="item-entry">
 			  <input type="hidden" name="MAX_FILE_SIZE" value="3000000000" />
 				<input type="hidden" name="latitude" value="" id="latitude-value" /> 
-				<input type="hidden" name="longitude" value="" id="longitude-value" /> 
+				<input type="hidden" name="longitude" value="" id="longitude-value" />
+
+        <p>Choose image:
         <input type="file" accept="image/*" capture="camera" name="photo">
-				<a href="#" class="submit-item">Submit Item</a>
+
+        <p>Choose category:
+        <select id="category">
+          <?php foreach($category as $k => $v): ?>
+            <option value="<?php echo $k; ?>"><?php echo $v; ?></option>
+          <?php endforeach; ?>
+        </select>
+				<p><a href="#" class="submit-item">Submit Item</a>
 				<span class="db-response"></span>
 			</form>
 

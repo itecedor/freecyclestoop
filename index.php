@@ -3,6 +3,8 @@
 // grab all categories from the DB
   require("dbconfig.php");
 
+session_start();
+
   $categories_query = "SELECT * FROM categories;";
 
   $categories_result = mysql_query($categories_query) ;
@@ -40,9 +42,9 @@
     <body>
 			<div class="content">
 			<h1>Freecycle Stoop</h1>
-
+<?php if (!isset($_SESSION['user_id'])): ?>
     <a href="auth.php">Login or Sign Up</a>
-
+<?php endif; ?>
 			<div id="message"></div>
 			<form id="item-entry">
 			  <input type="hidden" name="MAX_FILE_SIZE" value="3000000000" />
